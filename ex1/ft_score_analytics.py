@@ -6,17 +6,17 @@
 #  By: asulon <asulon@student.42nice.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 2026/02/26 06:29:40 by asulon          #+#    #+#               #
-#  Updated: 2026/02/26 06:55:38 by asulon          ###   ########.fr        #
+#  Updated: 2026/03/05 16:08:38 by asulon          ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
 import sys
 
+print("=== Player Score Analytics ===")
 if len(sys.argv) == 1:
     print("No score provided."
           "Usage: python3 ft_score_analytics.py <score1> <score2> ...")
 else:
-    print("=== Player Score Analytics ===")
     score_list = []
 
     i = 1
