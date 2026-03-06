@@ -6,7 +6,7 @@
 #  By: asulon <asulon@student.42nice.fr>         +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 0026/03/06 15:19:55 by sulon           #+#    #+#               #
-#  Updated: 2026/03/06 16:30:22 by asulon          ###   ########.fr        #
+#  Updated: 2026/03/06 16:30:49 by asulon          ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -62,12 +62,10 @@ start_time = time.time()
 for event in event_generator(limit):
     total_events += 1
 
-    # Affichage des 3 premiers pour l'exemple
     if total_events <= 3:
         print(f"Event {event['id']}: Player {event['player']} "
               f"(level {event['level']}) {event['action']}")
 
-    # Analyse à la volée
     if event['level'] >= 10:
         high_level_players += 1
     if event['action'] == "found treasure":
