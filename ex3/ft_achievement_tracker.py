@@ -29,18 +29,15 @@ print(f"All unique achievement: {all_achievement}")
 print(f"Total unique achievements: {len(all_achievement)}\n")
 
 # Common achievement
-print(f"Common to all players {alice.intersection(bob).intersection(charlie)}")
-# L'union de tout le monde
-all_unique = alice.union(bob).union(charlie)
-
-# Rare = Tout le monde - Ceux qui partagent avec quelqu'un
-rare = all_unique.difference(all_achievement)
-
-print(f"Rare achievements (1 player): {rare}")
 print(
-    f"Rare achievemen: {all_achievement}")
+    f"Common to all players: {alice.intersection(bob).intersection(charlie)}")
 
+# Set the shared achievements between Alice, Bob and Charlie
+shared = alice.intersection(bob).union(
+    bob.intersection(charlie)).union(alice.intersection(charlie))
+
+print(f"Rare achievements (1 player): {all_achievement.difference(shared)}\n")
 
 print(f"Alice vs Bob common {alice.intersection(bob)}")
-print(f"Alice unique: {len(all_achievement)}")
-print(f"Bob unique: {len(all_achievement)}")
+print(f"Alice unique: {alice.difference(bob, charlie)}")
+print(f"Bob unique: {bob.difference(alice, charlie)}")
