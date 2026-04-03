@@ -13,59 +13,56 @@
 import math
 
 
-def parse_coordinate(coord_str: str):
-    parts = coord_str.split(',')
-    res = tuple(int(part) for part in parts)
-    return res
-
-
-def estimate_distance(base_coord: tuple, coord: tuple):
+def estimate_distance(base_coord: tuple, coord: tuple) -> float:
+    """Calculate distance between 2 coord x,y,z"""
     return math.sqrt((coord[0] - base_coord[0])**2 +
                      (coord[1] - base_coord[1])**2 +
-                     (coord[2] - base_coord[2])**2).__round__(2)
+                     (coord[2] - base_coord[2])**2)
+
+
+def get_player_pos() -> tuple[float, float, float]:
+    """Asking user x,y,z player coordonate"""
+    while True:
+        try:
+            raw = input("Enter new coordinates as floats in format 'x,y,z': ")
+        except KeyboardInterrupt:
+            # Avoid error on interrupt
+            return (0, 0, 0)
+
+        # get coords
+        parts = raw.split(",")
+        if len(parts) != 3:
+            print("Invalid syntax")
+            continue
+        try:
+            x = float(parts[0].strip())
+            y = float(parts[1].strip())
+            z = float(parts[2].strip())
+        except ValueError as error:
+            print("Error on parameter"
+                  f"{str(error).rsplit(":", maxsplit=1)[-1]}: {error}")
+            continue
+
+        return (x, y, z)
 
 
 print("=== Game Coordinate System ===\n")
+print("Get a first set of coordinates")
+center_coord: tuple[int, int, int] = (0, 0, 0)
 
-base_coord = (0, 0, 0)
-current_pos = ()
-
-# coord1
-coord1 = (10, 20, 5)
-current_pos = coord1
-print(f"Position created: {current_pos}")
-print(
-    f"Distance between {base_coord} and {current_pos}"
-    f": {estimate_distance(base_coord, current_pos)}\n")
-
-# coord2
-coord2 = "3,4,0"
 try:
-    print(f'Parsing coordinates: "{coord2}"')
-    current_pos = parse_coordinate(coord2)
-    print(f"Parsed position: {current_pos}")
-    print(
-        f"Distance between {base_coord} and {current_pos}"
-        f": {estimate_distance(base_coord, current_pos)}\n")
-except ValueError as error:
-    print(f"Error parsing coordinates: {error}")
-    print(f"Error details - Type: {type(error).__name__}, Args: {error.args}")
+    # 1st pos
+    player_pos = get_player_pos()
+    print(f"Got a first tuple: {player_pos}")
+    print(f"It includes: X={player_pos[0]}, "
+          f"Y={player_pos[1]}, Z={player_pos[2]}")
+    print("Distance to center: "
+          f"{estimate_distance(player_pos, center_coord):.4f}\n")
 
-# Coord3
-coord3 = "abc,def,ghi"
-try:
-    print(f'Parsing invalid coordinates: "{coord3}"')
-    current_pos = parse_coordinate(coord3)
-    print(f"Parsed position: {current_pos}")
-    print(
-        f"Distance between {base_coord} and {current_pos}")
-except ValueError as error:
-    print(f"Error parsing coordinates: {error}")
-    print(
-        f"Error details - Type: {type(error).__name__}, Args: {error.args}\n")
-
-# Unpacking demonstration:
-x, y, z = current_pos
-print("Unpacking demonstration:")
-print(f"Player at x={x}, y={y}, z={z}")
-print(f"Coordinates: X={x}, Y={y}, Z={z}")
+    # 2nd pos
+    print("Get a second set of coordinates")
+    second_pos = get_player_pos()
+    print("Distance between the 2 sets of coordinates: "
+          f"{estimate_distance(player_pos, center_coord):.4f}")
+except (ValueError, KeyboardInterrupt) as error:
+    print(error)
