@@ -3,10 +3,10 @@
 #                                                      :::      ::::::::    #
 #  ft_coordinate_system.py                           :+:      :+:    :+:    #
 #                                                  +:+ +:+         +:+      #
-#  By: asulon <asulon@student.42nice.fr>         +#+  +:+       +#+         #
+#  By: asulon <asulon@student.42.fr>             +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 0026/03/05 17:14:28 by sulon           #+#    #+#               #
-#  Updated: 2026/03/05 17:16:18 by asulon          ###   ########.fr        #
+#  Updated: 2026/04/14 19:03:32 by asulon          ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -40,7 +40,7 @@ def get_player_pos() -> tuple[float, float, float]:
             z = float(parts[2].strip())
         except ValueError as error:
             print("Error on parameter"
-                  f"{str(error).rsplit(":", maxsplit=1)[-1]}: {error}")
+                  f"{str(error).rsplit(':', maxsplit=1)[-1]}: {error}")
             continue
 
         return (x, y, z)

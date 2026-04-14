@@ -49,8 +49,8 @@ print(f"All distinct achievements: {all_achievement}\n")
 
 # # Common achievements
 print(
-    f"Common to all players: {alice.intersection(bob).
-                              intersection(charlie).intersection(dylan)}\n")
+    f"Common to all players: "
+    f"{alice.intersection(bob).intersection(charlie).intersection(dylan)}\n")
 
 # Unique achivements by players
 print(f"Only Alice has: {alice.difference(bob.union(charlie, dylan))}")
