@@ -6,7 +6,7 @@
 #  By: asulon <asulon@student.42.fr>             +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 0026/03/06 01:07:24 by sulon           #+#    #+#               #
-#  Updated: 2026/04/14 17:29:37 by asulon          ###   ########.fr        #
+#  Updated: 2026/04/14 17:35:14 by asulon          ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -17,14 +17,14 @@ def parse_item(item: str) -> list[str]:
     return item.split(':')
 
 
-def get_total(inventory: dict):
+def get_total(inventory: dict) -> int:
     total = 0
     for quantity in inventory.values():
         total += quantity
     return total
 
 
-def get_max_item(inventory: dict):
+def get_max_item(inventory: dict) -> str:
     max_value = list(inventory.values())[0]
     key_value = list(inventory.keys())[0]
     for key, value in inventory.items():
@@ -34,7 +34,7 @@ def get_max_item(inventory: dict):
     return key_value
 
 
-def get_min_item(inventory: dict):
+def get_min_item(inventory: dict) -> str:
     min_value = list(inventory.values())[0]
     key_value = list(inventory.keys())[0]
     for key, value in inventory.items():
