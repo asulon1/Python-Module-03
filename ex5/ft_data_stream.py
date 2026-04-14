@@ -6,7 +6,7 @@
 #  By: asulon <asulon@student.42.fr>             +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 0026/03/06 15:19:55 by sulon           #+#    #+#               #
-#  Updated: 2026/04/14 19:02:54 by asulon          ###   ########.fr        #
+#  Updated: 2026/04/14 19:05:28 by asulon          ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -24,7 +24,7 @@ def gen_event() -> Generator[tuple[str, str], None, None]:
         yield (player, action)
 
 
-def consume_event(list):
+def consume_event(list: dict[str, str]) -> None:
     pass
 
 

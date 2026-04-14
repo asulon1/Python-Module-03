@@ -6,14 +6,15 @@
 #  By: asulon <asulon@student.42.fr>             +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 0026/03/05 17:14:28 by sulon           #+#    #+#               #
-#  Updated: 2026/04/14 19:03:32 by asulon          ###   ########.fr        #
+#  Updated: 2026/04/14 19:06:28 by asulon          ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
 import math
 
 
-def estimate_distance(base_coord: tuple, coord: tuple) -> float:
+def estimate_distance(base_coord: tuple[float, float, float],
+                      coord: tuple[float, float, float]) -> float:
     """Calculate distance between 2 coord x,y,z"""
     return math.sqrt((coord[0] - base_coord[0])**2 +
                      (coord[1] - base_coord[1])**2 +
