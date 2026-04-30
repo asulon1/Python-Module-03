@@ -6,7 +6,7 @@
 #  By: asulon <asulon@student.42.fr>             +#+  +:+       +#+         #
 #                                              +#+#+#+#+#+   +#+            #
 #  Created: 0026/03/05 17:14:28 by sulon           #+#    #+#               #
-#  Updated: 2026/04/14 19:06:28 by asulon          ###   ########.fr        #
+#  Updated: 2026/04/30 17:03:31 by asulon          ###   ########.fr        #
 #                                                                           #
 # ************************************************************************* #
 
@@ -64,6 +64,6 @@ try:
     print("Get a second set of coordinates")
     second_pos = get_player_pos()
     print("Distance between the 2 sets of coordinates: "
-          f"{estimate_distance(player_pos, center_coord):.4f}")
+          f"{estimate_distance(player_pos, second_pos):.4f}")
 except (ValueError, KeyboardInterrupt) as error:
     print(error)
